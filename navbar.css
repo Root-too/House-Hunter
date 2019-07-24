@@ -1,0 +1,22 @@
+body,html{
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2
+}
+
+.navbar{
+    background-color:  #ff2626;
+    height: 50px;
+    display: flex;
+}
+
+.sidebar{
+    width:80px;
+    height:100%;
+    background-color: blue
+}
+
+.outer{
+    display: flex;
+    flex-direction: row;
+}
