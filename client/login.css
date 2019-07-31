@@ -1,0 +1,41 @@
+body,html{
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2
+}
+
+.navbar{
+    background-color:  #ff2626;
+    height: 50px;
+    display: flex;
+}
+
+.text{
+font-size: 30px;
+color:white;
+text-align: center;
+font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.login-flex{
+    display: flex;
+    background: white;
+    border:solid red;
+    width:400px;
+    height:500px;
+    justify-items: center;
+    margin-left: 800px;
+    margin-top: 70px;
+    padding-top:70px;
+    justify-content: center;
+}
+
+.login-flex button{
+    background-color:red;
+    border-radius: 5px;
+    height:30px;
+    width:80px;
+    font-size:15px;
+
+}
+

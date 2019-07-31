@@ -20,3 +20,8 @@ body,html{
     display: flex;
     flex-direction: row;
 }
+.text{
+    font-size: 30px;
+    color:white;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
