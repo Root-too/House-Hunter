@@ -27,13 +27,14 @@ body{
 .outer{
     display: flex;
     flex-direction: row;
+    margin-top: 70px;
+    margin-bottom: 20px;
 }
+
 .text{
     font-size: 30px;
     color:white;
     font-family: "Comic Sans MS", cursive, sans-serif;
-    margin-top: 70px;
-    margin-bottom: 20px;
 }
 
 .inner{
