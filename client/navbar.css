@@ -1,12 +1,8 @@
 body,html{
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2
+    background-color: #f2f2f2;
 }
-/* 
-body{
-    overflow: hidden;
-} */
 
 .navbar{
     background-color:  #ff2626;
@@ -18,13 +14,15 @@ body{
 }
 
 .sidebar{
-    width:200px;
+    width:280px;
     height:-webkit-fill-available;
-    background-color: blue;
+    background-color: white;
     margin-left: 20px;
+    overflow: hidden;
 }
 
-.outer{
+
+.container{
     display: flex;
     flex-direction: row;
     margin-top: 70px;
@@ -37,19 +35,24 @@ body{
     font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
-.inner{
+.content{
     display: flex;
     flex-direction: column;
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 10px;
     width: -webkit-fill-available;
-    /* overflow: auto;
-    -webkit-overflow-scrolling: touch; */
+    height: 640px;
+    overflow-y: auto;
+}
+
+.content::-webkit-scrollbar { 
+    width: 0;
+    height: 0;
 }
 
 .info{
     background-color: white;
     margin-top: 20px;
-    height: 150px;
-    border: 3px solid #ff2626;
+    border: 2px solid #ff2626;
 }
