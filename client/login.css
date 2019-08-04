@@ -28,6 +28,11 @@ font-family: "Comic Sans MS", cursive, sans-serif;
     margin-top: 70px;
     padding-top:70px;
     justify-content: center;
+    align-items: flex-start;
+}
+
+.user-login{
+    margin-top:40px;
 }
 
 .login-flex button{
@@ -36,6 +41,20 @@ font-family: "Comic Sans MS", cursive, sans-serif;
     height:30px;
     width:80px;
     font-size:15px;
-
+    margin-left:65px;
+    margin-top:40px;
 }
 
+.login-flex input::placeholder{
+    /* color:red; */
+    font-size:12px;
+}
+
+.form-input
+{
+width: 220px;
+height: 30px;
+border:solid red 1.45px;
+border-radius: 6px;
+padding-left:7px;
+}
