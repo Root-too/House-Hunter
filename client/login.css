@@ -46,7 +46,7 @@ font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 .login-flex input::placeholder{
-    font-size:12px;
+    font-size:13px;
 }
 
 .form-input
