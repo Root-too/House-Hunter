@@ -1,9 +1,13 @@
 body,html{
     margin: 0;
     padding: 0;
-    background-color: #dcdde0;
+    
 }
-
+body{
+    background-image: url('back5.jpg');
+    background-attachment: fixed;
+    background-size:cover;
+}
 .navbar{
     background-color:  #3483eb;
     width: 100%;
@@ -31,11 +35,13 @@ body,html{
     background: white;
     width:400px;
     height:500px;
-    justify-items: center;
-    margin-top: 130px;
-    padding-top:70px;
+    /* justify-items: center; */
+    margin-top: -230px;
+    padding-top:70px; 
     justify-content: center;
     align-items: flex-start;
+    margin-left:900px;
+ 
 }
 
 .user-login{
@@ -77,10 +83,12 @@ padding-left:7px;
 }
 
 .tag{
-    text-align: center;
+    text-align: left;
     font-size: 50px;
-    color: #3483eb;
+    color: white;
     font-family: 'Pacifico', cursive;
+    margin-left:250px;
+    margin-top:300px;
 }
 
 #home{

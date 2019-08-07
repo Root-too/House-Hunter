@@ -4,8 +4,10 @@ body,html{
     background-color: #dcdde0;
 }
 
+
+
 .navbar{
-    background-color:  #3483eb;
+    background-color: #3483eb;
     width: 100%;
     height: 60px;
     position: fixed;
