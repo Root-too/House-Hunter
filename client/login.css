@@ -1,11 +1,17 @@
 body,html{
     margin: 0;
     padding: 0;
-    background-color: #dcdde0;
+    /* background-color: #dcdde0; */
+}
+
+body{
+    background-image: url('back5.jpg');
+    background-size: cover;
+	background-attachment: fixed;
 }
 
 .navbar{
-    background-color:  #3483eb;
+    background-color:   #3483eb;
     height: 50px;
     display: flex;
 }
