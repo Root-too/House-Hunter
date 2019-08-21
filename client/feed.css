@@ -34,9 +34,10 @@ body,html{
 .text{
     margin-top: 7px;
     margin-left: 9px;
-    font-size: 30px;
     color:white;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
+]
 }
 
 .home-logo{
