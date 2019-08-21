@@ -21,6 +21,7 @@ body,html{
     background-color: white;
     margin-left: 20px;
     overflow: hidden;
+    font-family: 'Hepta Slab', serif;
 }
 
 
@@ -63,4 +64,28 @@ body,html{
 .info{
     background-color: white;
     margin-top: 20px;
+}
+
+.sort{
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    justify-content: space-evenly;
+}
+
+.filter{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    justify-content: space-evenly;
+}
+
+.budget input{
+    width: 80px;
+}
+
+.filter button{
+    width: 80px;
+    margin-left: auto;
+    margin-right: auto;
 }
