@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="feed.css">
         <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/15cc7f8e80.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap" rel="stylesheet">
     </head>
     
     <body>
@@ -19,8 +20,41 @@
 
         <div class="container">
             <div class="sidebar">
-                sort<br>
-                filter
+                <div style="font-size: 25px;">Sort By</div>
+                <div style="font-size: 10px;">Clear Sort</div>
+                <form class="sort">
+                    <div>
+                        <input type="radio" name="price">
+                        <label>Price: Low to High</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="price">
+                        <label>Price: High to Low</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="price">
+                        <label>Dated Newest</label> 
+                    </div>
+                </form>
+
+                <!-- <br><br> -->
+                <div style="font-size: 25px;">Filter</div>
+                <div style="font-size: 10px;">Clear Filter</div>
+                <form class="filter">
+                    <div>
+                        <label>BHK</label>
+                        <input type="text">
+                    </div>
+                    <div class="budget">
+                        <label>Budget</label>
+                        <br>
+                        <input type="text" placeholder="Min">
+                        - 
+                        <input type="text" placeholder="Max">
+                    </div>
+                    <button>Sale</button>
+                    <button>Rent</button>
+                </form>
             </div>
             
             <div class="content">
