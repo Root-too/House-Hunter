@@ -19,7 +19,7 @@ body,html{
     width:280px;
     height:-webkit-fill-available;
     background-color: white;
-    margin-left: 20px;
+    margin-left: 50px;
     overflow: hidden;
     font-family: 'Hepta Slab', serif;
     padding:40px;
@@ -29,8 +29,8 @@ body,html{
 .container{
     display: flex;
     flex-direction: row;
-    margin-top: 70px;
-    margin-bottom: 20px;
+    margin-top: 100px;
+    margin-bottom: 40px;
 }
 
 .text{
@@ -50,7 +50,7 @@ body,html{
     flex-direction: column;
     margin-left: 50px;
     margin-right: 50px;
-    margin-top: 10px;
+    margin-top: -15px;
     width: -webkit-fill-available;
     height: 640px;
     overflow-y: auto;
@@ -64,6 +64,7 @@ body,html{
 .info{
     background-color: white;
     margin-top: 20px;
+    padding: 10px;
 }
 
 .sort{
