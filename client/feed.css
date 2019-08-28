@@ -22,6 +22,7 @@ body,html{
     margin-left: 20px;
     overflow: hidden;
     font-family: 'Hepta Slab', serif;
+    padding:40px;
 }
 
 
@@ -38,7 +39,6 @@ body,html{
     color:white;
     font-family: 'Lobster', cursive;
     font-size: 40px;
-]
 }
 
 .home-logo{
@@ -66,8 +66,6 @@ body,html{
     margin-top: 20px;
 }
 
-<<<<<<< HEAD
-=======
 .sort{
     display: flex;
     flex-direction: column;
@@ -91,4 +89,3 @@ body,html{
     margin-left: auto;
     margin-right: auto;
 }
->>>>>>> 5112d3e74d8c81192bb49d2760061e0478195cea
