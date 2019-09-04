@@ -82,7 +82,35 @@
             </div>
             
             <div class="content">
-                <div class="info">
+
+                <?php
+
+                    require('connect.php');
+
+                    $stmt = $pdo->query('SELECT * FROM property');
+                ?>
+
+
+                <?php while($row = $stmt->fetch()): ?> 
+                    <div class="info">  
+                    <div style="display: flex">
+                        <img src='uploads/<?php echo $row->image; ?>' alt="house image" width="200px" height="200px">
+
+                        <div style="display: flex; flex-direction: column; height: 200px;justify-content: space-evenly;">
+                            <div><?php echo $row->bhk; ?> BHK apartment in <?php echo $row->location; ?></div>
+                            <div><?php echo $row->propname; ?></div>
+                            <div style="display: flex; width: 300px;justify-content: space-evenly"> 
+                                <div>₹ <?php echo $row->price; ?></div>
+                                <div><?php echo $row->bhk; ?> BHK</div>
+                                <div><?php echo $row->area; ?> sq ft</div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                <?php endwhile; ?>
+            
+                
+                <!-- <div class="info">
                     <div style="display: flex">
                         <img src="housepic.jpg" alt="housepic" width="200px" height="200px">
                         <div style="display: flex; flex-direction: column; height: 200px;justify-content: space-evenly;">
@@ -155,7 +183,7 @@
                 </div>
                 <div class="info">
                     details
-                </div>
+                </div> -->
             </div>
         </div>
 

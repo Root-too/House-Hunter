@@ -1,3 +1,34 @@
+<?php
+    require('connect.php');
+    // session_start();
+
+    if(isset($_POST['login'])){
+
+        $username = htmlentities($_POST['Username']);
+        $pass = htmlentities($_POST['password']);
+
+        if(!empty($username) && !empty($pass)){
+
+            $md5pass = md5($pass);
+
+            $sql = 'SELECT * FROM register WHERE username = ? AND password = ?';
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$username, $md5pass]);
+            $count = $stmt->rowCount();
+
+            if($count == 1){
+
+                // $_SESSION['username'] = $username;
+                header('Location: feed.php');
+            }
+
+        } else {
+            //enter all fields
+            echo '<script>alert("Please enter all the details")</script>';
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html>
  
@@ -53,7 +84,7 @@
                 </div> 
                 
                 <div class="login-flex">
-                    <form class="user-login">
+                    <form class="user-login" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <label style="margin-top: 50px; font-size: 22px;font-family: 'Lobster', cursive;">Username</label>
                             <br><br>
                             <input type="text" class="form-input" name="Username" placeholder="Username">
@@ -62,7 +93,8 @@
                             <br><br>
                             <input type="password" class="form-input" name="password"  placeholder="Password">
                             <br><br>
-                            <button class="sign-button"  type="submit" formaction="/feed.html">SIGN IN</button>
+                            <!-- <button class="sign-button"  type="submit" formaction="/feed.html">SIGN IN</button> -->
+                            <button class="sign-button" type="submit" name="login">SIGN IN</button>
                             <!-- <button class="sign-button"  type="submit" formaction="/feed.html"><a href="feed.html">SIGN IN</a></button> -->
                     </form>
                     
