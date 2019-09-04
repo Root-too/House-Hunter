@@ -1,3 +1,43 @@
+<?php
+    require('connect.php');
+    //  echo "hello";
+
+    if(isset($_POST['submit'])){
+
+		//get form data
+		$fname = htmlentities($_POST['firstName']);
+        $lname = htmlentities($_POST['lastName']);
+        $email = htmlentities($_POST['email-id']);
+        $dob = htmlentities($_POST['dob']);
+        $username = htmlentities($_POST['Username']);
+        $pass = htmlentities($_POST['password']);
+
+        if(!empty($fname) && !empty($lname) && !empty($email) && !empty($dob) && !empty($username) && !empty($pass)){
+
+            if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+                //fail
+                echo '<script>alert("Please fill in a valid email id")</script>';
+
+            } else {
+
+                $md5password = md5($pass);
+
+                $sql = 'INSERT INTO register(fname, lname, email, dob, username, password) VALUES(?,?,?,?,?,?)';
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([$fname, $lname, $email,$dob,$username,$md5password]);
+        
+                header('Location: feed.php');
+            }
+
+        } else {
+                //enter all fields
+                echo '<script>alert("Please enter all the details")</script>';
+        }
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html>
  
@@ -16,7 +56,7 @@
                     </div>
             </div>
             <div class="login-flex">
-                    <form class="user-login">
+                    <form class="user-login" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <label style="margin-top: 50px; font-size: 20px">First Name</label>
                             <br><br>
                             <input type="text" class="form-input" name="firstName" placeholder="First Name">
@@ -45,6 +85,7 @@
                             <br><br>
                             <input type="password" class="form-input" name="confirmPassword"  placeholder="Confirm Password">
                             <br><br>
+                            
                             <button class="register-button"  type="submit" name="submit">REGISTER</button>
                             <!-- <button class="sign-button"  type="submit" formaction="/feed.html"><a href="feed.html">SIGN IN</a></button> -->
                     </form>
