@@ -11,8 +11,9 @@
         $dob = htmlentities($_POST['dob']);
         $username = htmlentities($_POST['Username']);
         $pass = htmlentities($_POST['password']);
+        $type =  htmlentities($_POST['type']);
 
-        if(!empty($fname) && !empty($lname) && !empty($email) && !empty($dob) && !empty($username) && !empty($pass)){
+        if(!empty($fname) && !empty($lname) && !empty($email) && !empty($dob) && !empty($username) && !empty($pass) && !empty($type)){
 
             if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
                 //fail
@@ -22,11 +23,11 @@
 
                 $md5password = md5($pass);
 
-                $sql = 'INSERT INTO register(fname, lname, email, dob, username, password) VALUES(?,?,?,?,?,?)';
+                $sql = 'INSERT INTO register(fname, lname, email, dob, username, password, type) VALUES(?,?,?,?,?,?,?)';
                 $stmt = $pdo->prepare($sql);
-                $stmt->execute([$fname, $lname, $email,$dob,$username,$md5password]);
+                $stmt->execute([$fname, $lname, $email,$dob,$username,$md5password,$type]);
         
-                header('Location: feed.php');
+                header('Location: login.php');
             }
 
         } else {
@@ -85,6 +86,10 @@
                             <br><br>
                             <input type="password" class="form-input" name="confirmPassword"  placeholder="Confirm Password">
                             <br><br>
+                            <label>Type of User</label>
+                            <br><br>
+                            <input type="radio" name="type" value="seller"> Seller
+                            <input type="radio" name="type" value="buyer"> Buyer<br>
                             
                             <button class="register-button"  type="submit" name="submit">REGISTER</button>
                             <!-- <button class="sign-button"  type="submit" formaction="/feed.html"><a href="feed.html">SIGN IN</a></button> -->

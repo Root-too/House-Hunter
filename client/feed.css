@@ -2,6 +2,7 @@ body,html{
     margin: 0;
     padding: 0;
     background-color: #dcdde0;
+    overflow: hidden;
 }
 
 
@@ -18,7 +19,7 @@ body,html{
 .sidebar{
     width:400px;
     /* height:-webkit-fill-available; */
-    height:700px;
+    height:610px;
     background-color: white;
     margin-left: 50px;
     overflow: hidden;
@@ -33,7 +34,7 @@ body,html{
     flex-direction: row;
     margin-top: 100px;
     margin-bottom: 40px;
-    width:1350px
+    /* width:1350px */
 }
 
 .text{
@@ -56,7 +57,7 @@ body,html{
     margin-right: 50px;
     margin-top: -15px;
     width: -webkit-fill-available;
-    height: 640px;
+    height: 620px;
     overflow-y: auto;
 }
 

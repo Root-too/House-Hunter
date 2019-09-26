@@ -1,6 +1,6 @@
 <?php
     require('connect.php');
-    // session_start();
+    session_start();
 
     if(isset($_POST['login'])){
 
@@ -15,10 +15,13 @@
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$username, $md5pass]);
             $count = $stmt->rowCount();
+            $user = $stmt->fetch();
+
 
             if($count == 1){
 
-                // $_SESSION['username'] = $username;
+                $_SESSION['username'] = $username;
+                $_SESSION['type'] = $user->type;
                 header('Location: feed.php');
             }
 
