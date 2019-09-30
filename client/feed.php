@@ -40,13 +40,12 @@
                     <ul>
                         <li><a href="#0">Profile</a></li>
                         <li><a href="#0">Edit Property</a></li>
-                        <li><a href="#0">Logout</a></li>
+                        <li><a href="http://localhost/House-Hunter/client/logout.php">Logout</a></li>
                         <li><a href="#0">About</a></li>
                         <li><a href="#0">Contact</a></li>
                     </ul>
                 </div>
             </div>
-            <!-- </div> -->
         </div>
 
         <?php if($type == 'buyer'): ?>
@@ -95,7 +94,7 @@
 
                     <?php
 
-                        require('connect.php');
+                        // require('connect.php');
 
                         $stmt = $pdo->query('SELECT * FROM property');
                     ?>
@@ -108,7 +107,11 @@
 
                             <div style="display: flex; flex-direction: column; height: 200px;justify-content: space-evenly;">
                                 <div><?php echo $row->bhk; ?> BHK apartment in <?php echo $row->location; ?></div>
-                                <div><?php echo $row->propname; ?></div>
+
+                                <div>
+                                    <a href="<?php echo "http://localhost/House-Hunter/client/" ?>post.php?id=<?php echo $row->id; ?>"><?php echo $row->propname; ?>
+                                </div>
+
                                 <div style="display: flex; width: 300px;justify-content: space-evenly"> 
                                     <div>₹ <?php echo $row->price; ?></div>
                                     <div><?php echo $row->bhk; ?> BHK</div>
