@@ -2,7 +2,7 @@ body,html{
     margin: 0;
     padding: 0;
     background-color: #dcdde0;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 
@@ -292,9 +292,9 @@ main small {
   padding: 0;
 }
 
-html, body {
+/* html, body {
   height: 100%;
-}
+} */
 
 a,
 a:visited,

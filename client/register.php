@@ -1,6 +1,5 @@
 <?php
     require('connect.php');
-    //  echo "hello";
 
     if(isset($_POST['submit'])){
 
@@ -92,10 +91,8 @@
                             <input type="radio" name="type" value="buyer"> Buyer<br>
                             
                             <button class="register-button"  type="submit" name="submit">REGISTER</button>
-                            <!-- <button class="sign-button"  type="submit" formaction="/feed.html"><a href="feed.html">SIGN IN</a></button> -->
                     </form>
                     
-                    <!-- <a class="account" href="register.html">Create Account</a> -->
                 </div>
     </body>
 </html>

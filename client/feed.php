@@ -4,6 +4,7 @@
 
     $username = $_SESSION['username'];
     $type = $_SESSION['type'];
+    $id = $_SESSION['id'];
 ?>
 
 <!DOCTYPE html>
@@ -37,17 +38,28 @@
                     <span class="icon-bar"></span>
                 </div>
                 <div id="nav-content" tabindex="0">
-                    <ul>
-                        <li><a href="#0">Profile</a></li>
-                        <li><a href="#0">Edit Property</a></li>
-                        <li><a href="http://localhost/House-Hunter/client/logout.php">Logout</a></li>
-                        <li><a href="#0">About</a></li>
-                        <li><a href="#0">Contact</a></li>
-                    </ul>
+                    <?php if($type == 'buyer'): ?>
+                        <ul>
+                            <li><a href="http://localhost/House-Hunter/client/feed.php">Home</a></li>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="http://localhost/House-Hunter/client/logout.php">Logout</a></li>
+                            <li><a href="#">About</a></li>
+                        </ul>
+                    <?php else: ?>
+                        <ul>
+                            <li><a href="http://localhost/House-Hunter/client/feed.php">Home</a></li>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="http://localhost/House-Hunter/client/addprop.php">Add Property</a></li>
+                            <li><a href="http://localhost/House-Hunter/client/logout.php">Logout</a></li>
+                            <li><a href="#">About</a></li>
+                        </ul>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
 
+
+        <!-- User type is buyer -->
         <?php if($type == 'buyer'): ?>
 
             <div class="container">
@@ -125,8 +137,40 @@
 
                 </div>
             </div>
+
+        <!-- User type is seller -->
         <?php else: ?>
-            <h1 style="margin-top: 100px;">hi</h1>
+            <h1 style="margin-top: 100px;">My properties</h1>
+
+            <?php 
+                $sql = 'SELECT * FROM property WHERE s_id = ?';
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([$id]);
+                $posts = $stmt->fetchAll();
+            ?>
+
+            <?php foreach ($posts as $post): ?> 
+                <div class="info">  
+                    <div style="display: flex">
+                        <img src='uploads/<?php echo $post->image; ?>' alt="house image" width="200px" height="200px">
+
+                        <div style="display: flex; flex-direction: column; height: 200px;justify-content: space-evenly;">
+                            <div><?php echo $post->bhk; ?> BHK apartment in <?php echo $post->location; ?></div>
+
+                            <div>
+                                <a href="<?php echo "http://localhost/House-Hunter/client/" ?>post.php?id=<?php echo $post->id; ?>"><?php echo $post->propname; ?>
+                            </div>
+
+                            <div style="display: flex; width: 300px;justify-content: space-evenly"> 
+                                <div>₹ <?php echo $post->price; ?></div>
+                                <div><?php echo $post->bhk; ?> BHK</div>
+                                <div><?php echo $post->area; ?> sq ft</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+            
 
         <?php endif; ?>
 

@@ -22,6 +22,7 @@
 
                 $_SESSION['username'] = $username;
                 $_SESSION['type'] = $user->type;
+                $_SESSION['id'] = $user->id;
                 header('Location: feed.php');
             }
 
@@ -96,9 +97,7 @@
                             <br><br>
                             <input type="password" class="form-input" name="password"  placeholder="Password">
                             <br><br>
-                            <!-- <button class="sign-button"  type="submit" formaction="/feed.html">SIGN IN</button> -->
                             <button class="sign-button" type="submit" name="login">SIGN IN</button>
-                            <!-- <button class="sign-button"  type="submit" formaction="/feed.html"><a href="feed.html">SIGN IN</a></button> -->
                     </form>
                     
                     <a class="account" href="register.html">Create Account</a>

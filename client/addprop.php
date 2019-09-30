@@ -1,6 +1,10 @@
 <?php
     require('connect.php');
     //  echo "hello";
+    session_start();
+
+    $username = $_SESSION['username'];
+    $id = $_SESSION['id'];
 
     if(isset($_POST['add'])){
 
@@ -13,19 +17,23 @@
         $price = htmlentities($_POST['price']);
         $age = htmlentities($_POST['age']);
         $image = $_FILES['image']['name'];
+        $p_type = htmlentities($_POST['p_type']);
 
         $target = 'uploads/'.basename($_FILES['image']['name']);
 
 
         if(!empty($propname) && !empty($location) && !empty($address) && !empty($bhk) && !empty($area) && !empty($price) && !empty($age) && !empty($image)){
 
-                $sql = 'INSERT INTO property(propname, location, address, bhk, area, price, age, image) VALUES(?,?,?,?,?,?,?,?)';
+                $sql = 'INSERT INTO property(propname, location, address, bhk, area, price, age, image, p_type, s_id) VALUES(?,?,?,?,?,?,?,?,?,?)';
                 $stmt = $pdo->prepare($sql);
-                $stmt->execute([$propname, $location, $address, $bhk, $area, $price, $age, $image]);
+                
 
                 if(move_uploaded_file($_FILES['image']['tmp_name'], $target)){
-                
-                    header('Location: feed.php');
+                    $stmt->execute([$propname, $location, $address, $bhk, $area, $price, $age, $image, $p_type, $id]);
+                    header('Location: feed.php');   
+                } else {
+                    //enter all fields
+                    echo '<script>alert("Unsuccessful")</script>';
                 }
 
         } else {
@@ -47,12 +55,13 @@
     </head>
     <body>
         
-            <!-- <div class='navbar'>
+            <div class='navbar'>
                     <div class="header">
                         <img class="home-logo" src="house.png" alt="logo" width="60px" height="60px">
                         <div class="text">House Hunter</div>
+                        <?php echo $username; ?>
                     </div>
-            </div> -->
+            </div>
             <div class="login-flex">
                     <form class="user-login" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
                             <label style="margin-top: 50px; font-size: 20px">Property Name</label>
@@ -86,6 +95,11 @@
                             <label style="margin-top: 50px; font-size: 20px">Add Image</label>
                             <br><br>
                             <input type="file" name="image">
+                            <br><br>
+                            <label>Property Type</label>
+                            <br>
+                            <input type="radio" name="p_type" value="sale"> Sale
+                            <input type="radio" name="p_type" value="rent"> Rent<br>
                             <br><br>
                             <button class="register-button" type="submit" name="add">ADD</button>
 

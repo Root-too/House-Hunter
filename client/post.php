@@ -56,13 +56,22 @@
                     <span class="icon-bar"></span>
                 </div>
                 <div id="nav-content" tabindex="0">
-                    <ul>
-                        <li><a href="#0">Profile</a></li>
-                        <li><a href="#0">Edit Property</a></li>
-                        <li><a href="#0">Logout</a></li>
-                        <li><a href="#0">About</a></li>
-                        <li><a href="#0">Contact</a></li>
-                    </ul>
+                    <?php if($type == 'buyer'): ?>
+                        <ul>
+                            <li><a href="http://localhost/House-Hunter/client/feed.php">Home</a></li>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="http://localhost/House-Hunter/client/logout.php">Logout</a></li>
+                            <li><a href="#">About</a></li>
+                        </ul>
+                    <?php else: ?>
+                        <ul>
+                            <li><a href="http://localhost/House-Hunter/client/feed.php">Home</a></li>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="http://localhost/House-Hunter/client/addprop.php">Add Property</a></li>
+                            <li><a href="http://localhost/House-Hunter/client/logout.php">Logout</a></li>
+                            <li><a href="#">About</a></li>
+                        </ul>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -89,11 +98,12 @@
             </div>
         </div>
 
-
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <input type="hidden" name="delete_id" value="<?php echo $post->id; ?>">
-            <button type="submit" name="delete">Delete</button>
-        </form>
+        <?php if($type == 'seller'): ?>
+            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                <input type="hidden" name="delete_id" value="<?php echo $post->id; ?>">
+                <button type="submit" name="delete">Delete</button>
+            </form>
+        <?php endif; ?>
 
     </body>
 
