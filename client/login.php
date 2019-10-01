@@ -39,32 +39,6 @@
     <head>
         <title>House Hunter</title>
 
-        <!-- <script type="text/javascript">
-            var image_tracker = '1';
-
-            function change(){
-                var img = document.getElementById('home');
-                if(image_tracker == '1'){
-                    img.src = "home_2.png";
-                    image_tracker = '2';
-                }
-                else if(image_tracker == '2'){
-                    img.src = "home_3.png";
-                    image_tracker = '3';
-                }
-                else if(image_tracker == '3'){
-                    img.src = "home_4.png";
-                    image_tracker = '4'
-                }
-                else{
-                    img.src = "home_1.png";
-                    image_tracker = '1';
-                }
-            }
-
-            var timer = setInterval('change()',1000);
-        </script> -->
-
         <link rel="stylesheet" type="text/css" href="login.css">
         <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
@@ -91,16 +65,16 @@
                     <form class="user-login" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <label style="margin-top: 50px; font-size: 22px;font-family: 'Lobster', cursive;">Username</label>
                             <br><br>
-                            <input type="text" class="form-input" name="Username" placeholder="Username">
+                            <input type="text" class="form-input" name="Username" placeholder="Username" required>
                             <br><br>
                             <label style="margin-top: 70px;font-size: 22px;font-family: 'Lobster', cursive;" >Password</label>
                             <br><br>
-                            <input type="password" class="form-input" name="password"  placeholder="Password">
+                            <input type="password" class="form-input" name="password"  placeholder="Password" required>
                             <br><br>
                             <button class="sign-button" type="submit" name="login">SIGN IN</button>
                     </form>
                     
-                    <a class="account" href="register.html">Create Account</a>
+                    <a class="account" href="register.php">Create Account</a>
                 </div>
             <div>
         
