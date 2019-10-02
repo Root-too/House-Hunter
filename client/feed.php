@@ -111,32 +111,18 @@
 
                     <?php
 
-                        // require('connect.php');
+                        if($selected_var == 'l_to_h'){
+                            
+                            $stmt = $pdo->query('SELECT * FROM property ORDER BY price ASC');
+                        } else if($selected_var == 'h_to_l') {
 
-                        // if(isset($_POST['sort'])){
+                            $stmt = $pdo->query('SELECT * FROM property ORDER BY price DESC');                                
+                        } else if($selected_var == 'age') {
 
-                        //     $selected_var = $_POST['sort'];
-                        //     // window.location("http://localhost/House-Hunter/client/feed.php?sort=$selected_var");
-                        //     // header('Location: feed.php?sort='.$selected_var);
-                        //     header('Location: feed.php?sort=h_to_l');
-                        //     // header('Location: checkIfExsists.php?id='.$id);
-                        // }
+                            $stmt = $pdo->query('SELECT * FROM property ORDER BY age ASC');     
+                        } else {
 
-                            if($selected_var == 'l_to_h'){
-                                
-                                // $sql = 'SELECT * FROM property WHERE s_id = ?';
-                                // $stmt = $pdo->prepare($sql);
-                                // $stmt->execute([$id]);
-                                $stmt = $pdo->query('SELECT * FROM property ORDER BY price ASC');
-                            } else if($selected_var == 'h_to_l') {
-
-                                $stmt = $pdo->query('SELECT * FROM property ORDER BY price DESC');                                
-                            } else if($selected_var == 'age') {
-
-                                $stmt = $pdo->query('SELECT * FROM property ORDER BY age ASC');     
-                            } else {
-
-                            $stmt = $pdo->query('SELECT * FROM property');
+                        $stmt = $pdo->query('SELECT * FROM property');
                         }
                     ?>
 
