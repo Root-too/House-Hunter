@@ -135,19 +135,20 @@
                     <?php while($row = $stmt->fetch()): ?> 
                         <div class="info">  
                         <div style="display: flex">
-                            <img src='uploads/<?php echo $row->image; ?>' alt="house image" width="200px" height="200px">
+                            
+                            <img  class="property-image" src='uploads/<?php echo $row->image; ?>' alt="house image" width="200px" height="200px">
 
                             <div style="display: flex; flex-direction: column; height: 200px;justify-content: space-evenly;">
-                                <div><?php echo $row->bhk; ?> BHK apartment in <?php echo $row->location; ?></div>
+                                <div style="font-size:20px "><?php echo $row->bhk; ?> BHK apartment in <?php echo $row->location; ?></div>
 
-                                <div>
-                                    <a href="<?php echo "http://localhost/House-Hunter/client/" ?>post.php?id=<?php echo $row->id; ?>"><?php echo $row->propname; ?>
+                                <div style="font-size:20px" >
+                                   Property Name: <a href="<?php echo "http://localhost/House-Hunter/client/" ?>post.php?id=<?php echo $row->id; ?>"><?php echo $row->propname; ?>
                                 </div>
 
-                                <div style="display: flex; width: 300px;justify-content: space-evenly"> 
-                                    <div>₹ <?php echo $row->price; ?></div>
+                                <div style="display: flex;font-size:20px; width: 400px;justify-content: space-evenly;"> 
+                                    <div style="margin-left:-25px;">Price: ₹ <?php echo $row->price; ?></div>
                                     <div><?php echo $row->bhk; ?> BHK</div>
-                                    <div><?php echo $row->area; ?> sq ft</div>
+                                    <div> Area: <?php echo $row->area; ?> sq ft</div>
                                 </div>
                             </div>
                         </div>
@@ -160,31 +161,43 @@
 
         <!-- User type is seller -->
         <?php else: ?>
-            <h1 style="margin-top: 100px;">My properties</h1>
-
             <?php 
-                $sql = 'SELECT * FROM property WHERE s_id = ?';
-                $stmt = $pdo->prepare($sql);
-                $stmt->execute([$id]);
-                $posts = $stmt->fetchAll();
-            ?>
+                    $sql = 'SELECT * FROM property WHERE s_id = ?';
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute([$id]);
+                    $posts = $stmt->fetchAll();
+                    $count = $stmt->rowCount();
+
+                    if($count==0){
+                       
+                       
+                        echo ' Add First Property
+                            <div  style="margin-left:50px; margin-top: 120px;font-size:30px;">
+                            <a href="http://localhost/House-Hunter/client/addprop.php">Add your first property</a>';
+                          
+                        }
+            
+                ?>
+
+           
+            
 
             <?php foreach ($posts as $post): ?> 
-                <div class="info">  
+                <div class="info-seller">  
                     <div style="display: flex">
-                        <img src='uploads/<?php echo $post->image; ?>' alt="house image" width="200px" height="200px">
+                        <img  class="property-image"src='uploads/<?php echo $post->image; ?>' alt="house image" width="200px" height="200px">
 
                         <div style="display: flex; flex-direction: column; height: 200px;justify-content: space-evenly;">
-                            <div><?php echo $post->bhk; ?> BHK apartment in <?php echo $post->location; ?></div>
+                            <div style="font-size:20px "><?php echo $post->bhk; ?> BHK apartment in <?php echo $post->location; ?></div>
 
-                            <div>
-                                <a href="<?php echo "http://localhost/House-Hunter/client/" ?>post.php?id=<?php echo $post->id; ?>"><?php echo $post->propname; ?>
+                            <div style="font-size:20px ">
+                            Property Name:  <a href="<?php echo "http://localhost/House-Hunter/client/" ?>post.php?id=<?php echo $post->id; ?>"><?php echo $post->propname; ?>
                             </div>
 
-                            <div style="display: flex; width: 300px;justify-content: space-evenly"> 
-                                <div>₹ <?php echo $post->price; ?></div>
+                            <div style="display: flex; width: 400px;justify-content: space-evenly;font-size:20px;"> 
+                                <div style="margin-left:-25px;">Price: ₹ <?php echo $post->price; ?></div>
                                 <div><?php echo $post->bhk; ?> BHK</div>
-                                <div><?php echo $post->area; ?> sq ft</div>
+                                <div>Area: <?php echo $post->area; ?> sq ft</div>
                             </div>
                         </div>
                     </div>

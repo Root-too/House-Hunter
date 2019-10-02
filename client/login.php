@@ -25,6 +25,10 @@
                 $_SESSION['id'] = $user->id;
                 header('Location: feed.php');
             }
+            else
+            {
+                echo '<script>alert("User does not exist")</script>';      
+            }
 
         } else {
             //enter all fields
