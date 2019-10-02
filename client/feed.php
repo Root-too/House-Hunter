@@ -5,6 +5,11 @@
     $username = $_SESSION['username'];
     $type = $_SESSION['type'];
     $id = $_SESSION['id'];
+    $selected_var = '';
+
+    if(isset($_GET['var'])){
+        $selected_var = $_GET['var'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -65,18 +70,18 @@
             <div class="container">
                 <div class="sidebar">
                     <div style="font-size: 25px;">Sort By</div>
-                    <div style="font-size: 10px;">Clear Sort</div>
-                    <form class="sort">
+                    <div style="font-size: 10px; cursor: pointer;" onclick='window.location="http://localhost/House-Hunter/client/feed.php";'>Clear Sort</div>
+                    <form class="sort" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <div>
-                            <input type="radio" name="price">
+                            <input type="radio" name="sort" value="l_to_h" onclick='window.location="http://localhost/House-Hunter/client/feed.php?var=l_to_h";'>
                             <label>Price: Low to High</label>
                         </div>
                         <div>
-                            <input type="radio" name="price">
+                            <input type="radio" name="sort" value="h_to_l" onclick='window.location="http://localhost/House-Hunter/client/feed.php?var=h_to_l";'>
                             <label>Price: High to Low</label>
                         </div>
                         <div>
-                            <input type="radio" name="price">
+                            <input type="radio" name="sort" value="age" onclick='window.location="http://localhost/House-Hunter/client/feed.php?var=age";'>
                             <label>Dated Newest</label> 
                         </div>
                     </form> 
@@ -108,7 +113,31 @@
 
                         // require('connect.php');
 
-                        $stmt = $pdo->query('SELECT * FROM property');
+                        // if(isset($_POST['sort'])){
+
+                        //     $selected_var = $_POST['sort'];
+                        //     // window.location("http://localhost/House-Hunter/client/feed.php?sort=$selected_var");
+                        //     // header('Location: feed.php?sort='.$selected_var);
+                        //     header('Location: feed.php?sort=h_to_l');
+                        //     // header('Location: checkIfExsists.php?id='.$id);
+                        // }
+
+                            if($selected_var == 'l_to_h'){
+                                
+                                // $sql = 'SELECT * FROM property WHERE s_id = ?';
+                                // $stmt = $pdo->prepare($sql);
+                                // $stmt->execute([$id]);
+                                $stmt = $pdo->query('SELECT * FROM property ORDER BY price ASC');
+                            } else if($selected_var == 'h_to_l') {
+
+                                $stmt = $pdo->query('SELECT * FROM property ORDER BY price DESC');                                
+                            } else if($selected_var == 'age') {
+
+                                $stmt = $pdo->query('SELECT * FROM property ORDER BY age ASC');     
+                            } else {
+
+                            $stmt = $pdo->query('SELECT * FROM property');
+                        }
                     ?>
 
 

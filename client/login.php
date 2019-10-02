@@ -100,12 +100,12 @@
                             <button class="sign-button" type="submit" name="login">SIGN IN</button>
                     </form>
                     
-                    <a class="account" href="register.html">Create Account</a>
+                    <a class="account" href="register.php">Create Account</a>
                 </div>
-            <div>
+            </div>
         
             
-            
+            <!-- <div style="text-align:center;color: white;font-size: 25px;margin-top: 30px;">Foram Bhanushali<br>Ruthu Shetty<br>Margashi Thakur</div> -->
     </body>
 </html>
 
