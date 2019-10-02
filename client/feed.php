@@ -17,6 +17,33 @@
     <head>
         <title>House Hunter</title>
 
+
+        <script type="text/javascript">
+		
+            function showSuggestion(str){
+                // console.log(str);
+
+                if(str.length == 0){
+                    document.getElementById('output').innerHTML = '';
+                } else{
+                    document.getElementById("feed").style.display = "none";
+                    //AJAX REQ
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("output").innerHTML = this.responseText;
+                        }
+                    };
+
+                    xmlhttp.open("GET", "suggest.php?q="+str, true);
+                    xmlhttp.send();
+                }
+            }
+
+	    </script>
+
+
+
         <link rel="stylesheet" type="text/css" href="feed.css">
         <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/15cc7f8e80.js"></script>
@@ -28,6 +55,12 @@
     
          <!-- <div class="page"> -->
             <header tabindex="0" style="background-color: #3483eb;">
+                <div>
+                    <form>
+                        <input style="margin-left: 100px;" type="text" onkeyup="showSuggestion(this.value)" placeholder="Search">
+                        <!-- <p>Suggestion: <span id="output"></span></p> -->
+                    </form>
+                </div>
                 <a href=""> <img class="home-logo" src="house.png" alt="logo" width="50px" height="50px"></a> 
                 <a href="" style="text-decoration: none">  <div class="text" >HouseHunter</div> </a>
                 <!-- <i class="fas fa-user-circle" style="font-size:40px;color:white;margin-left:1050px;margin-top:10px;"></i>   -->
@@ -122,33 +155,37 @@
                             $stmt = $pdo->query('SELECT * FROM property ORDER BY age ASC');     
                         } else {
 
-                        $stmt = $pdo->query('SELECT * FROM property');
+                            $stmt = $pdo->query('SELECT * FROM property');
                         }
                     ?>
 
+                    <!-- php if(isset($_SESSION['search'])): ?> -->
+                        <div id="output"></div>
+                    <!-- php else: ?> -->
 
-                    <?php while($row = $stmt->fetch()): ?> 
-                        <div class="info">  
-                        <div style="display: flex">
-                            <img src='uploads/<?php echo $row->image; ?>' alt="house image" width="200px" height="200px">
+                        <?php while($row = $stmt->fetch()): ?> 
+                            <div class="info" id="feed" style="display: block;">  
+                                <div style="display: flex">
+                                    <img src='uploads/<?php echo $row->image; ?>' alt="house image" width="200px" height="200px">
 
-                            <div style="display: flex; flex-direction: column; height: 200px;justify-content: space-evenly;">
-                                <div><?php echo $row->bhk; ?> BHK apartment in <?php echo $row->location; ?></div>
+                                    <div style="display: flex; flex-direction: column; height: 200px;justify-content: space-evenly;">
+                                        <div><?php echo $row->bhk; ?> BHK apartment in <?php echo $row->location; ?></div>
 
-                                <div>
-                                    <a href="<?php echo "http://localhost/House-Hunter/client/" ?>post.php?id=<?php echo $row->id; ?>"><?php echo $row->propname; ?>
-                                </div>
+                                        <div>
+                                            <a href="<?php echo "http://localhost/House-Hunter/client/" ?>post.php?id=<?php echo $row->id; ?>"><?php echo $row->propname; ?>
+                                        </div>
 
-                                <div style="display: flex; width: 300px;justify-content: space-evenly"> 
-                                    <div>₹ <?php echo $row->price; ?></div>
-                                    <div><?php echo $row->bhk; ?> BHK</div>
-                                    <div><?php echo $row->area; ?> sq ft</div>
+                                        <div style="display: flex; width: 300px;justify-content: space-evenly"> 
+                                            <div>₹ <?php echo $row->price; ?></div>
+                                            <div><?php echo $row->bhk; ?> BHK</div>
+                                            <div><?php echo $row->area; ?> sq ft</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        </div>
-                    <?php endwhile; ?>
-                
+                        <?php endwhile; ?>
+                    
+                    <!-- php endif; -->
 
                 </div>
             </div>
