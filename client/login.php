@@ -76,10 +76,10 @@
                     
                     <a class="account" href="register.php">Create Account</a>
                 </div>
-            <div>
+            </div>
         
             
-            
+            <!-- <div style="text-align:center;color: white;font-size: 25px;margin-top: 30px;">Foram Bhanushali<br>Ruthu Shetty<br>Margashi Thakur</div> -->
     </body>
 </html>
 
