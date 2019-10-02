@@ -16,7 +16,7 @@
 
             $output .= ' 
 
-                <div style="background-color: white; margin-top: 20px; padding: 10px;">
+                <div style="background-color: white; margin-top: 100px; margin-right:20px !important;margin-left:20px !important;margin-bottom:-50px;padding: 10px;width: 1400px;">
                     <div style="display: flex">
                         <img src="uploads/'.$post->image.'" alt="house image" width="200px" height="200px">
 
@@ -24,13 +24,14 @@
                             <div>'.$post->bhk.' BHK apartment in '.$post->location.'</div>
 
                             <div>
-                                <a href="http://localhost/House-Hunter/client/post.php?id='.$post->id.'">'.$post->propname.'
+                            Property Name: <a href="http://localhost/House-Hunter/client/post.php?id='.$post->id.'">'.$post->propname.'
                             </div>
 
-                            <div style="display: flex; width: 300px;justify-content: space-evenly"> 
-                                <div>₹ '.$post->price.'</div>
+                            <div style="display: flex; width: 500px;justify-content: space-evenly;font-size:20px;"> 
+                                <div style="margin-left:-25px;">Price: ₹ '.$post->price.'</div>
                                 <div>'.$post->bhk.' BHK</div>
                                 <div>'.$post->area.' sq ft</div>
+                                <div>Age:'.$post->age.'</div>
                             </div>
                         </div>
                     </div>

@@ -69,9 +69,22 @@ body,html{
 .info{
     background-color: white;
     margin-top: 20px;
+    margin-right:20px !important;
+    margin-left:20px !important;
+    
     padding: 10px;
+    width: 1400px;
 }
 
+.info-seller{
+  background-color: white;
+  margin-top: 110px;
+  margin-right:20px !important;
+  margin-left:20px !important;
+  margin-bottom:-50px;
+  padding: 10px;
+  width: 1400px;
+}
 .sort{
     display: flex;
     flex-direction: column;
@@ -96,6 +109,9 @@ body,html{
     margin-right: auto;
 }
 
+.property-image{
+  margin:15px !important;
+}
 
 
 @import url('https://fonts.googleapis.com/css?family=Encode+Sans+Condensed:400,600');

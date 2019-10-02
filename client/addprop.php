@@ -49,7 +49,7 @@
 <html>
  
     <head>
-        <link rel="stylesheet" type="text/css" href="register.css">
+        <link rel="stylesheet" type="text/css" href="addprop.css">
         <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
         <title>Add Property</title>
     </head>
@@ -59,7 +59,7 @@
                     <div class="header">
                         <img class="home-logo" src="house.png" alt="logo" width="60px" height="60px">
                         <div class="text">House Hunter</div>
-                        <?php echo $username; ?>
+                        <!-- <?php echo $username; ?> -->
                     </div>
             </div>
             <div class="login-flex">
@@ -96,10 +96,10 @@
                             <br><br>
                             <input type="file" name="image">
                             <br><br>
-                            <label>Property Type</label>
-                            <br>
+                            <label style="margin-top: 50px; font-size: 20px">Property Type</label>
+                            <br><br>
                             <input type="radio" name="p_type" value="sale"> Sale
-                            <input type="radio" name="p_type" value="rent"> Rent<br>
+                            <input type="radio" name="p_type" value="rent">  Rent<br>
                             <br><br>
                             <button class="register-button" type="submit" name="add">ADD</button>
 
