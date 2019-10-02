@@ -22,6 +22,33 @@
     <head>
         <title>House Hunter</title>
 
+
+        <!-- <script type="text/javascript">
+		
+            function showSuggestion(str){
+
+                if(str.length == 0){
+                    document.getElementById('output').innerHTML = '';
+                } else{
+                    
+                    //AJAX REQ
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("output").innerHTML = this.responseText;
+                            console.log(this.responseText);
+                        }
+                    };
+
+                    xmlhttp.open("GET", "suggest.php?q="+str, true);
+                    xmlhttp.send();
+                }
+            }
+
+	    </script> -->
+
+
+
         <link rel="stylesheet" type="text/css" href="feed.css">
         <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/15cc7f8e80.js"></script>
@@ -52,6 +79,7 @@
                         <ul>
                             <li><a href="http://localhost/House-Hunter/client/feed.php">Home</a></li>
                             <li><a href="http://localhost/House-Hunter/client/profile.php">Profile</a></li>
+                            <li><a href="http://localhost/House-Hunter/client/search.php">Search</a></li>
                             <li><a href="http://localhost/House-Hunter/client/logout.php">Logout</a></li>
                             <li><a href="#">About</a></li>
                         </ul>
@@ -129,7 +157,7 @@
                             $stmt = $pdo->query('SELECT * FROM property ORDER BY age ASC');     
                         } else {
 
-                        $stmt = $pdo->query('SELECT * FROM property');
+                            $stmt = $pdo->query('SELECT * FROM property');
                         }
                     ?>
 
@@ -157,8 +185,6 @@
                         </div>
                         </div>
                     <?php endwhile; ?>
-                
-
                 </div>
             </div>
 
