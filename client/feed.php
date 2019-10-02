@@ -32,7 +32,7 @@
                 <a href="" style="text-decoration: none">  <div class="text" >HouseHunter</div> </a>
                 <!-- <i class="fas fa-user-circle" style="font-size:40px;color:white;margin-left:1050px;margin-top:10px;"></i>   -->
 
-                <?php echo $username; ?>
+                <div style="font-size:20px;color:white;margin-left:900px;margin-top:10px;"> Username: <?php echo $username; ?> </div>
 
             </header>
             <div id="nav-container">
@@ -46,14 +46,14 @@
                     <?php if($type == 'buyer'): ?>
                         <ul>
                             <li><a href="http://localhost/House-Hunter/client/feed.php">Home</a></li>
-                            <li><a href="#">Profile</a></li>
+                            <li><a href="http://localhost/House-Hunter/client/profile.php">Profile</a></li>
                             <li><a href="http://localhost/House-Hunter/client/logout.php">Logout</a></li>
                             <li><a href="#">About</a></li>
                         </ul>
                     <?php else: ?>
                         <ul>
                             <li><a href="http://localhost/House-Hunter/client/feed.php">Home</a></li>
-                            <li><a href="#">Profile</a></li>
+                            <li><a href="http://localhost/House-Hunter/client/profile.php">Profile</a></li>
                             <li><a href="http://localhost/House-Hunter/client/addprop.php">Add Property</a></li>
                             <li><a href="http://localhost/House-Hunter/client/logout.php">Logout</a></li>
                             <li><a href="#">About</a></li>
