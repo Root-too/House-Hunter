@@ -2,7 +2,7 @@
      require('connect.php');
     session_start();
 
-    $username = $_SESSION['username'];
+    // $username = $_SESSION['username'];
     $id = $_SESSION['id'];
 
     
@@ -26,10 +26,10 @@
         $stmt->execute([$fname,$lname,$email,$dob,$username,$id]);
         // echo 'post updated';
       
-        header('Location: feed.php');   
+        header('Location: profile.php');   
     }
     else{
-        echo 'post not updated';
+        // echo 'post not updated';
     }
    
 ?>
@@ -40,18 +40,43 @@
  
     <head>
         <link rel="stylesheet" type="text/css" href="profile.css">
+        <link rel="stylesheet" type="text/css" href="feed.css">
         <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
         <title>Profile page</title>
     </head>
     <body>
         
-            <div class='navbar'>
-                    <div class="header">
-                        <img class="home-logo" src="house.png" alt="logo" width="60px" height="60px">
-                        <div class="text">House Hunter</div>
-                    </div>
+    <div class='navbar'>
+    
+   
+       <header tabindex="0" style="background-color: #3483eb;">
+           <a href=""> <img class="home-logo" src="house.png" alt="logo" width="50px" height="50px"></a> 
+           <a href="" style="text-decoration: none">  <div class="text" >HouseHunter</div> </a>
+           <!-- <i class="fas fa-user-circle" style="font-size:40px;color:white;margin-left:1050px;margin-top:10px;"></i>   -->
+            
+           <div style="font-size:20px;color:white;margin-left:900px;margin-top:10px;"> Username:<?php echo  $post->username;  ?> </div>
+
+       </header>
+
+            <div id="nav-container">
+                <div class="bg"></div>
+                <div class="button" tabindex="0">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </div>
+                <div id="nav-content" tabindex="0">
+                  
+                        <ul>
+                            <li><a href="http://localhost/House-Hunter/client/feed.php">Home</a></li>
+                            <li><a href="http://localhost/House-Hunter/client/profile.php">Profile</a></li>
+                            <li><a href="http://localhost/House-Hunter/client/logout.php">Logout</a></li>
+                            <li><a href="#">About</a></li>
+                        </ul>
+                </div>
             </div>
+        </div>
             <div class="login-flex">
                     <form class="user-login" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <label style="margin-top: 50px; font-size: 20px">First Name</label>

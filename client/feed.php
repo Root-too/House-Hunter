@@ -2,10 +2,15 @@
     require('connect.php');
     session_start();
 
-    $username = $_SESSION['username'];
+    // $username = $_SESSION['username'];
     $type = $_SESSION['type'];
     $id = $_SESSION['id'];
     $selected_var = '';
+
+    $sql = 'SELECT * FROM register WHERE id= ?';
+    $stmt= $pdo->prepare($sql);
+    $stmt->execute([$id]);
+    $post = $stmt->fetch();
 
     if(isset($_GET['var'])){
         $selected_var = $_GET['var'];
@@ -32,7 +37,7 @@
                 <a href="" style="text-decoration: none">  <div class="text" >HouseHunter</div> </a>
                 <!-- <i class="fas fa-user-circle" style="font-size:40px;color:white;margin-left:1050px;margin-top:10px;"></i>   -->
 
-                <div style="font-size:20px;color:white;margin-left:900px;margin-top:10px;"> Username: <?php echo $username; ?> </div>
+                <div style="font-size:20px;color:white;margin-left:900px;margin-top:10px;"> Username: <?php echo $post->username; ?> </div>
 
             </header>
             <div id="nav-container">
