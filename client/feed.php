@@ -109,6 +109,8 @@
                         </div>
                         <button>Sale</button>
                         <button>Rent</button>
+                            
+                        <button type="submit" name="apply" > Apply Filter</button>
                     </form>
                 </div>
 
