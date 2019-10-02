@@ -23,20 +23,20 @@
         <title>House Hunter</title>
 
 
-        <script type="text/javascript">
+        <!-- <script type="text/javascript">
 		
             function showSuggestion(str){
-                // console.log(str);
 
                 if(str.length == 0){
                     document.getElementById('output').innerHTML = '';
                 } else{
-                    document.getElementById("feed").style.display = "none";
+                    
                     //AJAX REQ
                     var xmlhttp = new XMLHttpRequest();
                     xmlhttp.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("output").innerHTML = this.responseText;
+                            document.getElementById("output").innerHTML = this.responseText;
+                            console.log(this.responseText);
                         }
                     };
 
@@ -45,7 +45,7 @@
                 }
             }
 
-	    </script>
+	    </script> -->
 
 
 
@@ -60,12 +60,6 @@
     
          <!-- <div class="page"> -->
             <header tabindex="0" style="background-color: #3483eb;">
-                <div>
-                    <form>
-                        <input style="margin-left: 100px;" type="text" onkeyup="showSuggestion(this.value)" placeholder="Search">
-                        <!-- <p>Suggestion: <span id="output"></span></p> -->
-                    </form>
-                </div>
                 <a href=""> <img class="home-logo" src="house.png" alt="logo" width="50px" height="50px"></a> 
                 <a href="" style="text-decoration: none">  <div class="text" >HouseHunter</div> </a>
                 <!-- <i class="fas fa-user-circle" style="font-size:40px;color:white;margin-left:1050px;margin-top:10px;"></i>   -->
@@ -85,6 +79,7 @@
                         <ul>
                             <li><a href="http://localhost/House-Hunter/client/feed.php">Home</a></li>
                             <li><a href="http://localhost/House-Hunter/client/profile.php">Profile</a></li>
+                            <li><a href="http://localhost/House-Hunter/client/search.php">Search</a></li>
                             <li><a href="http://localhost/House-Hunter/client/logout.php">Logout</a></li>
                             <li><a href="#">About</a></li>
                         </ul>
@@ -164,12 +159,11 @@
                         }
                     ?>
 
-                    <!-- php if(isset($_SESSION['search'])): ?> -->
-                        <div id="output"></div>
-                    <!-- php else: ?> -->
+
+                        <!-- <div id="output"></div> -->
 
                         <?php while($row = $stmt->fetch()): ?> 
-                            <div class="info" id="feed" style="display: block;">  
+                            <div class="info">  
                                 <div style="display: flex">
                                     <img src='uploads/<?php echo $row->image; ?>' alt="house image" width="200px" height="200px">
 
@@ -189,9 +183,6 @@
                                 </div>
                             </div>
                         <?php endwhile; ?>
-                    
-                    <!-- php endif; -->
-
                 </div>
             </div>
 

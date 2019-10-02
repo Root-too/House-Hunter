@@ -1,9 +1,6 @@
 <?php
     require('connect.php');
-    session_start();
-
     $output = '';
-
     $q = $_REQUEST['q'];
     
     if($q !== ""){
@@ -40,7 +37,6 @@
                 </div>              
             ';
 
-            $_SESSION['search'] = 1;
             echo $output;
            
         }
