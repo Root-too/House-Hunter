@@ -145,10 +145,11 @@
                                    Property Name: <a href="<?php echo "http://localhost/House-Hunter/client/" ?>post.php?id=<?php echo $row->id; ?>"><?php echo $row->propname; ?>
                                 </div>
 
-                                <div style="display: flex;font-size:20px; width: 400px;justify-content: space-evenly;"> 
+                                <div style="display: flex;font-size:20px; width: 500px;justify-content: space-evenly;"> 
                                     <div style="margin-left:-25px;">Price: ₹ <?php echo $row->price; ?></div>
                                     <div><?php echo $row->bhk; ?> BHK</div>
                                     <div> Area: <?php echo $row->area; ?> sq ft</div>
+                                    <div> Age: <?php echo $row->age; ?> </div>
                                 </div>
                             </div>
                         </div>
@@ -171,9 +172,8 @@
                     if($count==0){
                        
                        
-                        echo ' Add First Property
-                            <div  style="margin-left:50px; margin-top: 120px;font-size:30px;">
-                            <a href="http://localhost/House-Hunter/client/addprop.php">Add your first property</a>';
+                        echo ' <div  style="margin-left:50px; margin-top: 120px;font-size:30px;">
+                               <a href="http://localhost/House-Hunter/client/addprop.php">Add your first property</a>';
                           
                         }
             
@@ -194,10 +194,11 @@
                             Property Name:  <a href="<?php echo "http://localhost/House-Hunter/client/" ?>post.php?id=<?php echo $post->id; ?>"><?php echo $post->propname; ?>
                             </div>
 
-                            <div style="display: flex; width: 400px;justify-content: space-evenly;font-size:20px;"> 
+                            <div style="display: flex; width: 500px;justify-content: space-evenly;font-size:20px;"> 
                                 <div style="margin-left:-25px;">Price: ₹ <?php echo $post->price; ?></div>
                                 <div><?php echo $post->bhk; ?> BHK</div>
                                 <div>Area: <?php echo $post->area; ?> sq ft</div>
+                                <div>Age: <?php echo $post->age; ?> </div>
                             </div>
                         </div>
                     </div>
