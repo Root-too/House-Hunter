@@ -166,7 +166,9 @@
                         <div class="info">  
                         <div style="display: flex">
                             
-                            <img  class="property-image" src='uploads/<?php echo $row->image; ?>' alt="house image" width="200px" height="200px">
+                            <img  class="
+                            
+                            image" src='uploads/<?php echo $row->image; ?>' alt="house image" width="200px" height="200px">
 
                             <div style="display: flex; flex-direction: column; height: 200px;justify-content: space-evenly;">
                                 <div style="font-size:20px "><?php echo $row->bhk; ?> BHK apartment in <?php echo $row->location; ?></div>
