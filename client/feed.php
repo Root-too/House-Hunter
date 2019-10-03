@@ -206,9 +206,7 @@
                         }
             
                 ?>
-
-           
-            
+ 
 
             <?php foreach ($posts as $post): ?> 
                 <div class="info-seller">  
