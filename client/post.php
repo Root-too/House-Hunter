@@ -78,7 +78,7 @@
 
         <div class="content">
             <div style="display: flex">
-                <img src='uploads/<?php echo $post->image; ?>' alt="house image" width="600px" height="600px">
+                <img src='uploads/<?php echo $post->image; ?>' alt="house image"  width="600px" height="600px">
 
                 <div style="display: flex; flex-direction: column; height: 400px;justify-content: space-evenly;">
 
