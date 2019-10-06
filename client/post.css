@@ -200,10 +200,18 @@ main small {
   transform: none;
 }
 
+.text{
+  margin-top: 7px;
+  margin-left: 9px;
+  color:white;
+  font-family: 'Lobster', cursive;
+  font-size: 40px;
+}
 
-
-
-
+.home-logo{
+  margin-top: 5px;
+  margin-left: 25px;
+}
 
 * {
   box-sizing: border-box;
@@ -236,4 +244,17 @@ h1, h2, h3, h4 {
 ul {
   padding: 0;
   list-style: none;
+}
+
+.delete-button{
+  background-color:#3483eb;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  height:35px;
+  width:90px;
+  font-size:15px;
+  margin-left:705px;
+  box-shadow: 3px 3px lightgrey;
+  
 }

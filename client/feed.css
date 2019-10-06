@@ -19,7 +19,7 @@ body,html{
 .sidebar{
     width:400px;
     /* height:-webkit-fill-available; */
-    height:610px;
+    height:650px !important;
     background-color: white;
     margin-left: 50px;
     overflow: hidden;
@@ -112,7 +112,9 @@ body,html{
 .property-image{
   margin:15px !important;
 }
-
+.image{
+  margin:15px !important;
+}
 
 @import url('https://fonts.googleapis.com/css?family=Encode+Sans+Condensed:400,600');
 
