@@ -121,26 +121,54 @@
 
                     <br><br>
                     <div style="font-size: 25px;">Filter</div>
-                    <div style="font-size: 10px;">Clear Filter</div>
-                    <form class="filter">
+                    <div style="font-size: 10px; cursor: pointer;" onclick='window.location="http://localhost/House-Hunter/client/feed.php";'>Clear Filter</div>
+
+                    <form class="filter" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <div>
                             <label>BHK</label>
                             <br>
-                            <input type="text">
+                            <input type="checkbox" name="bkh" value="1" onclick='window.location="http://localhost/House-Hunter/client/feed.php?var=1";' > 1<br>
+                            <input type="checkbox" name="bkh" value="2" onclick='window.location="http://localhost/House-Hunter/client/feed.php?var=2";' > 2<br>
+                            <input type="checkbox" name="bkh" value="3" onclick='window.location="http://localhost/House-Hunter/client/feed.php?var=3";' > 3<br>
+                            <input type="checkbox" name="bkh" value="4" onclick='window.location="http://localhost/House-Hunter/client/feed.php?var=4";' > 4<br>
+                            <input type="checkbox" name="bkh" value="5" onclick='window.location="http://localhost/House-Hunter/client/feed.php?var=5";' > 5+<br>
                         </div>
                         <div class="budget">
+                            <br>
                             <label>Budget</label>
                             <br>
-                            <input type="text" placeholder="Min">
-                            - 
-                            <input type="text" placeholder="Max">
+                            <label>Min</label>
+                            -
+                            <select>
+                                <option value="89" onselect='window.location="http://localhost/House-Hunter/client/feed.php?var=89";'>Below 90 lacs</option>
+                                <option value="90" onselect='window.location="http://localhost/House-Hunter/client/feed.php?var=90";'>90 lacs </option>
+                                <option value="1">1 crore</option>
+                                <option value="">2 crore</option>
+                                <option value="">3 crore</option>
+                                <option value="">5 crore</option>
+                                <option value="">10 crore</option>
+                            </select>
+                            <br>
+                            <label>Max</label>
+                            -
+                            <select>
+                                <option value="">Below 90 lacs</option>
+                                <option value="">90 lacs</option>
+                                <option value="">1 crore</option>
+                                <option value="">2 crore</option>
+                                <option value="">3 crore</option>
+                                <option value="">5 crore</option>
+                                <option value="">10 crore</option>
+                            </select>
                         </div>
-                        <button>Sale</button>
-                        <button>Rent</button>
-                            
-                        <button type="submit" name="apply" > Apply Filter</button>
+                        <div>
+                        Type:
+                            <input type="radio" name="p_type" value="sale" onclick='window.location="http://localhost/House-Hunter/client/feed.php?var=sale";'> Sale
+                            <input type="radio" name="p_type" value="rent" onclick='window.location="http://localhost/House-Hunter/client/feed.php?var=rent";'> Rent
+                        </div>
+                     </div>  
                     </form>
-                </div>
+               
 
                 <div class="content">
 
@@ -161,14 +189,49 @@
                         }
                     ?>
 
+                    <?php
+                        //for bhk filter
+                        if($selected_var == 1){
+                            $stmt = $pdo->query('SELECT * FROM property WHERE bhk=1');
+                            
+                        }else if($selected_var == 2){
+                                $stmt = $pdo->query('SELECT * FROM property WHERE bhk=2');
+                            }
+                            else if($selected_var == 3){
+                                $stmt = $pdo->query('SELECT * FROM property WHERE bhk=3');
+                            }else if($selected_var == 4){
+                                $stmt = $pdo->query('SELECT * FROM property WHERE bhk=4');
+                            }
+                            else if($selected_var == 5){
+                                $stmt = $pdo->query('SELECT * FROM property WHERE bhk>=5');
+                            }
+    
+                    ?>
+
+                    <?php
+                        //for budget filter
+
+                        if($selected_var == 90){
+                            $stmt = $pdo->query('SELECT * FROM property WHERE bhk=1');
+                        }
+                    ?>
+
+
+                    <?php
+                        //for type filter
+
+                        if($selected_var == 'sale'){
+                            $stmt = $pdo->query('SELECT * FROM property WHERE p_type="sale"');
+                        }else if($selected_var == 'rent'){
+                            $stmt = $pdo->query('SELECT * FROM property WHERE p_type="rent"');
+                        }
+                    ?>
 
                     <?php while($row = $stmt->fetch()): ?> 
                         <div class="info">  
                         <div style="display: flex">
                             
-                            <img  class="
-                            
-                            image" src='uploads/<?php echo $row->image; ?>' alt="house image" width="200px" height="200px">
+                            <img  class="image" src='uploads/<?php echo $row->image; ?>' alt="house image" width="200px" height="200px">
 
                             <div style="display: flex; flex-direction: column; height: 200px;justify-content: space-evenly;">
                                 <div style="font-size:20px "><?php echo $row->bhk; ?> BHK apartment in <?php echo $row->location; ?></div>
@@ -177,8 +240,15 @@
                                    Property Name: <a href="<?php echo "http://localhost/House-Hunter/client/" ?>post.php?id=<?php echo $row->id; ?>"><?php echo $row->propname; ?>
                                 </div>
 
-                                <div style="display: flex;font-size:20px; width: 500px;justify-content: space-evenly;"> 
-                                    <div style="margin-left:-25px;">Price: ₹ <?php echo $row->price; ?></div>
+                                <div style="display: flex;font-size:20px; width: 550px;justify-content: space-evenly;"> 
+                                    <div style="margin-left:-35px;">
+                                    <?php if($row->p_type=='rent')
+                                            { 
+                                               echo 'Rental Price (ppm): ₹';
+                                            }else{
+                                                echo "Price: ₹";
+                                            }
+                                    ?><?php echo $row->price; ?></div>
                                     <div><?php echo $row->bhk; ?> BHK</div>
                                     <div> Area: <?php echo $row->area; ?> sq ft</div>
                                     <div> Age: <?php echo $row->age; ?> </div>
@@ -189,6 +259,9 @@
                     <?php endwhile; ?>
                 </div>
             </div>
+
+           
+                                    
 
         <!-- User type is seller -->
         <?php else: ?>
