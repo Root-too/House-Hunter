@@ -137,18 +137,18 @@
                             <br>
                             <label>Budget</label>
                             <br>
-                            <label>Min</label>
-                            -
-                            <select>
-                                <option value="89" onselect='window.location="http://localhost/House-Hunter/client/feed.php?var=89";'>Below 90 lacs</option>
-                                <option value="90" onselect='window.location="http://localhost/House-Hunter/client/feed.php?var=90";'>90 lacs </option>
-                                <option value="1">1 crore</option>
-                                <option value="">2 crore</option>
-                                <option value="">3 crore</option>
-                                <option value="">5 crore</option>
-                                <option value="">10 crore</option>
+                            <!-- <label>Min</label>
+                            - -->
+                            <select onchange="window.location.href = this.value">
+                                <option></option>
+                                <option value="feed.php?var=90">Below 90 lacs</option>
+                                <option value="feed.php?var=90-1">90 lacs - 1 crore</option>
+                                <option value="feed.php?var=1-3">1 crore - 3 crore</option>
+                                <option value="feed.php?var=3-5">3 crore - 5 crore</option>
+                                <option value="feed.php?var=5-10">5 crore - 10 crore</option>
+                                <option value="feed.php?var=100">10 crore +</option>
                             </select>
-                            <br>
+                            <!-- <br>
                             <label>Max</label>
                             -
                             <select>
@@ -159,7 +159,7 @@
                                 <option value="">3 crore</option>
                                 <option value="">5 crore</option>
                                 <option value="">10 crore</option>
-                            </select>
+                            </select> -->
                         </div>
                         <div>
                         Type:
@@ -210,9 +210,23 @@
 
                     <?php
                         //for budget filter
-
                         if($selected_var == 90){
-                            $stmt = $pdo->query('SELECT * FROM property WHERE bhk=1');
+                            $stmt = $pdo->query('SELECT * FROM property WHERE price<9000000');
+
+                        } else if($selected_var == 90-1){
+                            $stmt = $pdo->query('SELECT * FROM property WHERE price>=9000000 AND price<10000000');
+
+                        } else if($selected_var == 1-3){
+                            $stmt = $pdo->query('SELECT * FROM property WHERE price>=10000000 AND price<30000000');
+
+                        } else if($selected_var == 3-5){
+                            $stmt = $pdo->query('SELECT * FROM property WHERE price>=30000000 AND price<50000000');
+
+                        } else if($selected_var == 5-10){
+                            $stmt = $pdo->query('SELECT * FROM property WHERE price>=50000000 AND price<100000000');
+
+                        } else if($selected_var == 100){
+                            $stmt = $pdo->query('SELECT * FROM property WHERE price>=100000000');
                         }
                     ?>
 
