@@ -26,7 +26,7 @@
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute([$fname, $lname, $email,$dob,$username,$md5password,$type]);
         
-                header('Location: login.php');
+                header('Location: index.php');
             }
 
         } else {
