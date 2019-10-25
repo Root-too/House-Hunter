@@ -43,6 +43,32 @@
     <head>
         <title>House Hunter</title>
 
+        <script type="text/javascript">
+            var text_tracker = '1';
+
+            function change(){
+                if(text_tracker == '1'){
+                    document.getElementById('t1').style.display = "block";
+                    document.getElementById('t2').style.display = "none";
+                    document.getElementById('t3').style.display = "none";
+                    text_tracker = '2';
+                }
+                else if(text_tracker == '2'){
+                    document.getElementById('t1').style.display = "none";
+                    document.getElementById('t2').style.display = "block";
+                    document.getElementById('t3').style.display = "none";
+                    text_tracker = '3';
+                }
+                else if(text_tracker == '3'){
+                    document.getElementById('t1').style.display = "none";
+                    document.getElementById('t2').style.display = "none";
+                    document.getElementById('t3').style.display = "block";
+                    text_tracker = '1'
+                }
+            }
+            var timer = setInterval('change()',1000);
+        </script>
+
         <link rel="stylesheet" type="text/css" href="login.css">
         <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
@@ -60,9 +86,9 @@
             
             <div class="image-flex">
                 <div class="text-flex">
-                        <div class="tag">Buy</div>
-                        <div class="tag" style="margin-left: auto; margin-right: auto">Rent</div>
-                        <div class="tag" style="margin-left: auto">Sell</div>
+                        <div class="tag" id="t1" style="display: none;">Buy</div>
+                        <div class="tag" id="t2" style="margin-left: auto; margin-right: auto; display: none;">Rent</div>
+                        <div class="tag" id="t3" style="margin-left: auto; display: none;">Sell</div>
                 </div> 
                 
                 <div class="login-flex">
